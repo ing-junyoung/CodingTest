@@ -1,0 +1,13 @@
+# 문제링크 : https://school.programmers.co.kr/learn/courses/30/lessons/131112
+
+
+# 내 답안 
+
+# LIKE 이용해서 시작 단어 , 포함단어 , 끝나는 단어 등 활용 
+# 본 문항에선 시작을 강원도로 
+
+SELECT FACTORY_ID , FACTORY_NAME , ADDRESS
+FROM FOOD_FACTORY
+#WHERE ADDRESS LIKE '강원도%'
+WHERE ADDRESS LIKE '%강원도%'
+ORDER BY FACTORY_ID ASC;
