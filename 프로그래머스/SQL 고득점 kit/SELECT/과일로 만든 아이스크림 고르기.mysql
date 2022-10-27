@@ -1,0 +1,27 @@
+# 문제 링크 : https://school.programmers.co.kr/learn/courses/30/lessons/133025
+
+
+# FIRST_HALR : 출하번호 , 아이스크림 맛 , 상반기 아이스크림 총 주문량 
+# ICECREAN_INFO : 아이스크림 맛 , 주 성분 
+
+# 총 주문량 3000 이상이면서, 주성분이 과일인 아이스크림 맛 (DESC FLAVOR)
+
+# FLAVOR를 KEY로 사용하여 JOIN 후 조건 실행 
+
+
+# 내 답안
+SELECT A.FLAVOR
+FROM FIRST_HALF As A LEFT JOIN ICECREAM_INFO AS B ON A.FLAVOR = B.FLAVOR
+WHERE B.INGREDIENT_TYPE = 'fruit_based' AND TOTAL_ORDER > 3000
+ORDER BY TOTAL_ORDER DESC;
+
+
+# 다른 사람 답안 참고 
+
+# 카디널 프로덕트로 모든 쌍을 만들고 풀이 하신 것 같음 
+
+SELECT f.FLAVOR
+FROM FIRST_HALF f, ICECREAM_INFO i
+WHERE f.FLAVOR = i.FLAVOR AND ingredient_type = 'fruit_based' AND total_order >=3000
+ORDER BY total_order DESC;
+
