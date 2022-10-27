@@ -1,0 +1,10 @@
+# 문제 링크 : https://school.programmers.co.kr/learn/courses/30/lessons/133024
+
+
+# 내 답안 
+# 딱히 생각할 필요 없이 기본 SELECT 
+
+SELECT FLAVOR
+FROM FIRST_HALF
+ORDER BY TOTAL_ORDER DESC , SHIPMENT_ID ASC;
+
