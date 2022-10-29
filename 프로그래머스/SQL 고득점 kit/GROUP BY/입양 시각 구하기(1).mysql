@@ -1,0 +1,10 @@
+# 문제 링크 : https://school.programmers.co.kr/learn/courses/30/lessons/59412
+
+# 내 답안
+
+SELECT HOUR ,COUNT(HOUR) AS COUNT
+FROM (SELECT HOUR(DATETIME) AS HOUR
+     FROM ANIMAL_OUTS 
+     WHERE 9<= HOUR(DATETIME) AND HOUR(DATETIME)<=19)  AS TBL2
+GROUP BY HOUR
+ORDER BY HOUR ASC;
