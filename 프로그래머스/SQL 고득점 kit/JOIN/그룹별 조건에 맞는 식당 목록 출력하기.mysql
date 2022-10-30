@@ -1,0 +1,33 @@
+# 문제 링크 : https://school.programmers.co.kr/learn/courses/30/lessons/131124
+
+# 내 답안
+
+SELECT MEMBER_NAME , REVIEW_TEXT , REVIEW_DATE
+FROM(
+    SELECT A.MEMBER_NAME , B.REVIEW_TEXT , DATE_FORMAT(B.REVIEW_DATE , '%Y-%m-%d') AS REVIEW_DATE , 
+    COUNT(*) OVER(PARTITION BY MEMBER_NAME) AS CNT_REVIEW
+    FROM MEMBER_PROFILE AS A JOIN REST_REVIEW AS B ON A.MEMBER_ID = B.MEMBER_ID
+) AS C
+WHERE CNT_REVIEW = (select COUNT(*)from REST_REVIEW 
+                    group by MEMBER_ID order by count(MEMBER_ID) desc 
+                    limit 1)
+ORDER BY REVIEW_DATE ASC , REVIEW_TEXT ASC
+
+# SELECT A.MEMBER_NAME , B.REVIEW_TEXT , DATE_FORMAT(B.REVIEW_DATE , '%Y-%m-%d') AS REVIEW_DATE , 
+# COUNT(*) OVER(PARTITION BY MEMBER_NAME) AS CNT_REVIEW
+# FROM MEMBER_PROFILE AS A JOIN REST_REVIEW AS B ON A.MEMBER_ID = B.MEMBER_ID
+# HAVING CNT_REVIEW = MAX(CNT_REVIEW)
+
+# select a.member_name, b.review_text, b.review_date
+# from member_profile as a
+# join rest_review as b on a.member_id = b.member_id
+# where a.member_id = (select member_id
+#                     from rest_review
+#                     group by member_id
+#                     order by count(review_text) desc
+#                     limit 1)
+
+# select COUNT(*)from REST_REVIEW
+# group by MEMBER_ID
+# order by count(MEMBER_ID) desc
+# limit 1
