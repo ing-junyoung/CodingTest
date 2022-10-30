@@ -1,0 +1,12 @@
+# 문제 링크 : https://school.programmers.co.kr/learn/courses/30/lessons/59043
+
+# 내 답안
+
+# situtation : 일부 동물의 입양일이 잘못 입력되었습니다
+# 보호 시작일보다 입양일이 더 빠른 동물의 아이디와 이름을 조회하는 SQL문을 작성
+# ORDER BY 보호시작일 
+
+SELECT A.ANIMAL_ID, A.NAME
+FROM ANIMAL_INS AS A JOIN ANIMAL_OUTS AS B ON A.ANIMAL_ID = B.ANIMAL_ID
+WHERE A.DATETIME > B.DATETIME
+ORDER BY A.DATETIME ASC;
