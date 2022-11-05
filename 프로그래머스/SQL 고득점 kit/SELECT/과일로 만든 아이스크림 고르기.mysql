@@ -18,7 +18,7 @@ ORDER BY TOTAL_ORDER DESC;
 
 # 다른 사람 답안 참고 
 
-# 카디널 프로덕트로 모든 쌍을 만들고 풀이 하신 것 같음 
+# 카디전 프로덕트로 모든 쌍을 만들고 풀이 하신 것 같음 
 
 SELECT f.FLAVOR
 FROM FIRST_HALF f, ICECREAM_INFO i
