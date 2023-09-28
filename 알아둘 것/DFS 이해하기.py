@@ -24,6 +24,7 @@ for wire in wires:
  tree[a].append(b)  # a번째 가지에 연결된 b를 추가
  tree[b].append(a)  # b번째 가지에 연결된 a를 추가 
 
+
 print(tree)
 > [[], [3], [3], [1, 2, 4], [3, 5, 6, 7], [4], [4], [4, 8, 9], [7], [7]]
 
